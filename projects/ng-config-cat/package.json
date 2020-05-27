@@ -1,6 +1,23 @@
 {
   "name": "ng-config-cat",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "description": "An Angular service for ConfigCat",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodm/ng-config-cat.git"
+  },
+  "author": {
+    "name": "nodm",
+    "email": "nodm.pe@gmail.com"
+  },
+  "keywords": [
+    "Angular",
+    "ConfigCat",
+    "ConfigCat Client",
+    "Feature Toggle"
+  ],
+  "private": false,
   "peerDependencies": {
     "@angular/common": "^9.1.9",
     "@angular/core": "^9.1.9",
