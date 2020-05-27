@@ -2,7 +2,7 @@ name: NgConfigCat CD
 on:
   push:
     branches:
-      - master
+      - release
 jobs:
   build:
     runs-on: ubuntu-latest

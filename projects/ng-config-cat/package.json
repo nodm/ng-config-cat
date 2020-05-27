@@ -1,6 +1,6 @@
 {
   "name": "ng-config-cat",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An Angular service for ConfigCat",
   "license": "MIT",
   "repository": {
