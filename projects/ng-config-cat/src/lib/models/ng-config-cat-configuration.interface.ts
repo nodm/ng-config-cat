@@ -1,10 +1,6 @@
-import {
-  AutoPollingModeConfiguration,
-  LazyPollingModeConfiguration,
-  ManualPollingModeConfiguration,
-} from '../classes';
+import { ConfigCatPollingModeConfiguration } from './config-cat-polling-mode-configuration.type';
 
 export interface NgConfigCatConfiguration {
   sdkKey: string;
-  configCatConfiguration?: AutoPollingModeConfiguration | LazyPollingModeConfiguration | ManualPollingModeConfiguration;
+  configuration?: ConfigCatPollingModeConfiguration;
 }
