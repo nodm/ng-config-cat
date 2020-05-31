@@ -1,6 +1,6 @@
 import { ConfigCatPollingModeConfiguration } from './config-cat-polling-mode-configuration.type';
 
-export interface NgConfigCatConfiguration {
+export interface NgConfigCatOptions {
   sdkKey: string;
   configuration?: ConfigCatPollingModeConfiguration;
 }

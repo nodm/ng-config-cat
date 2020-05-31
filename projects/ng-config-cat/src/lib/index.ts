@@ -6,7 +6,7 @@ export {
   ManualPollingModeConfiguration,
 } from './classes';
 export {
-  NgConfigCatConfiguration,
+  NgConfigCatOptions,
   AutoPollingModeOptions,
   LazyPollingModeOptions,
   PollingModeOptions,
