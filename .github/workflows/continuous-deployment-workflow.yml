@@ -15,10 +15,9 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build library
-        run: ng build ng-config-cat
+        run: npm run build ng-config-cat --prod
       - name: Publish to npm registry
-        run: npm publish
-        working-directory: ./dist/ng-config-cat
+        run: npm publish ./dist/ng-config-cat
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
