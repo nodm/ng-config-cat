@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {
   AutoPollingModeConfiguration,
@@ -6,11 +6,11 @@ import {
   ManualPollingModeConfiguration,
   ConfigCatClient,
   ConfigCatAutoModeClient,
-  ConfigCatConfiguration,
   ConfigCatLazyModeClient,
   ConfigCatManualModeClient,
 } from '../classes';
-import { ConfigCatUser } from '../models';
+import { NG_CONFIG_CAT_OPTIONS_TOKEN } from '../constants/ng-config-cat-options.token';
+import { ConfigCatUser, NgConfigCatConfiguration } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -18,15 +18,15 @@ import { ConfigCatUser } from '../models';
 export class NgConfigCatService {
   private readonly configCatClient: ConfigCatClient;
 
-  constructor(configuration: ConfigCatConfiguration) {
-    const { sdkKey, pollingModeConfiguration } = configuration;
+  constructor(@Inject(NG_CONFIG_CAT_OPTIONS_TOKEN) ngConfigCatConfiguration: NgConfigCatConfiguration) {
+    const { sdkKey, configuration = new AutoPollingModeConfiguration() } = ngConfigCatConfiguration;
 
-    if (pollingModeConfiguration instanceof AutoPollingModeConfiguration) {
-      this.configCatClient = new ConfigCatAutoModeClient(sdkKey, pollingModeConfiguration);
-    } else if(pollingModeConfiguration instanceof LazyPollingModeConfiguration) {
-      this.configCatClient = new ConfigCatLazyModeClient(sdkKey, pollingModeConfiguration);
-    } else if(pollingModeConfiguration instanceof ManualPollingModeConfiguration) {
-      this.configCatClient = new ConfigCatManualModeClient(sdkKey, pollingModeConfiguration);
+    if (configuration instanceof AutoPollingModeConfiguration) {
+      this.configCatClient = new ConfigCatAutoModeClient(sdkKey, configuration);
+    } else if(configuration instanceof LazyPollingModeConfiguration) {
+      this.configCatClient = new ConfigCatLazyModeClient(sdkKey, configuration);
+    } else if(configuration instanceof ManualPollingModeConfiguration) {
+      this.configCatClient = new ConfigCatManualModeClient(sdkKey, configuration);
     } else {
       throw new TypeError(
         'NgConfigCat configuration should be represent by an instance of PollingModeConfiguration class'
