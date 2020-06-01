@@ -18,7 +18,7 @@ jobs:
         run: npm install
         working-directory: ./projects/ng-config-cat
       - name: Build library
-        run: npm run build ng-config-cat --prod
+        run: npm run ng build ng-config-cat --prod
       - name: Publish to npm registry
         run: npm publish ./dist/ng-config-cat
         env:
