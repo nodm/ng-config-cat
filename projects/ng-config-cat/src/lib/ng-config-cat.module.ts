@@ -3,12 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { NG_CONFIG_CAT_OPTIONS_TOKEN } from './constants/ng-config-cat-options.token';
 import { NgConfigCatConfiguration } from './models';
+import { NgConfigCatFeatureEnabledDirective } from './directives/ng-config-cat-feature-enabled.directive';
+import { NgConfigCatFeatureDisabledDirective } from './directives/ng-config-cat-feature-disabled.directive';
 
 
 @NgModule({
   imports: [
     CommonModule,
-  ]
+  ],
+  declarations: [
+    NgConfigCatFeatureEnabledDirective,
+    NgConfigCatFeatureDisabledDirective,
+  ],
+  exports: [
+    NgConfigCatFeatureEnabledDirective,
+    NgConfigCatFeatureDisabledDirective,
+  ],
 })
 export class NgConfigCatModule {
   static forRoot(ngConfigCatConfiguration: NgConfigCatConfiguration): ModuleWithProviders {
