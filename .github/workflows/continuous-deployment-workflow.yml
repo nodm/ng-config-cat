@@ -14,9 +14,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: npm install
-      - name: Install library dependensies
-        run: npm install
-        working-directory: ./projects/ng-config-cat
       - name: Build library
         run: npm run nx build ng-config-cat -- --prod
       - name: Publish to npm registry
