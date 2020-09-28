@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "projects": {
+    "ng-config-cat": {
+      "projectType": "library",
+      "root": "packages/ng-config-cat",
+      "sourceRoot": "packages/ng-config-cat/src",
+      "prefix": "ng-config-cat",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "packages/ng-config-cat/tsconfig.lib.json",
+            "project": "packages/ng-config-cat/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "packages/ng-config-cat/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/ng-config-cat/tsconfig.lib.json",
+              "packages/ng-config-cat/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!packages/ng-config-cat/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/ng-config-cat/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/workspace"
+  },
+  "defaultProject": "ng-config-cat"
+}

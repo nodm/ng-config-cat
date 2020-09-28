@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/packages/ng-config-cat",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "configcat-common": "configcat-common",
+      "configcat-js": "configcat-js"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "configcat-js"
+  ]
+}
