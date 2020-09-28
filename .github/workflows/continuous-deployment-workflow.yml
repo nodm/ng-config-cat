@@ -16,8 +16,10 @@ jobs:
         run: npm install
       - name: Build library
         run: npm run nx build ng-config-cat -- --prod
+      - name: Debugging
+        run: pwd && ls ./dist/ng-config-cat
       - name: Publish to npm registry
-        run: npm publish ../dist/ng-config-cat
+        run: npm publish ./dist/ng-config-cat
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
