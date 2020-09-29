@@ -43,8 +43,8 @@ export abstract class NgConfigCatFeatureBaseDirective<T = null> implements OnIni
     this.ngConfigCatService.getValue<boolean>(this.featureName, this.defaultValue, this.user).pipe(
       takeUntil(this.destroy$),
       map((isFeatureEnabled: boolean) => isFeatureEnabled === this.shouldFeatureBeEnabled),
-    ).subscribe((isEnabled: boolean) => {
-      if (isEnabled) {
+    ).subscribe((isVisible: boolean) => {
+      if (isVisible) {
         this.viewRef = this.viewContainerRef.createEmbeddedView(this.templateRef);
         this.viewRef.markForCheck();
       } else {
